@@ -28318,11 +28318,10 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function Movies() {
-  const [movies, setMovies] = (0, _react.useState)([]);
-  const [isLoading, setLoading] = (0, _react.useState)(true);
+  const [movies, setMovies] = (0, _react.useState)([]); //const [isLoading, setLoading] = useState(true);
 
   async function fetchMovies() {
-    setLoading(true);
+    //setLoading(true)
     const response = await fetch(' https://ghibliapi.herokuapp.com/films');
     const data = await response.json();
     setMovies(data);
@@ -28330,11 +28329,10 @@ function Movies() {
   }
 
   (0, _react.useEffect)(() => {
-    fetchMovies();
-    setLoading(false);
+    fetchMovies(); //setLoading(false);
   }, []);
   const sortedMovies = movies.sort((a, b) => b.rt_score - a.rt_score);
-  return /*#__PURE__*/_react.default.createElement("div", null, isLoading && /*#__PURE__*/_react.default.createElement("p", null, "Loading ..."), sortedMovies.map(movie => {
+  return /*#__PURE__*/_react.default.createElement("div", null, sortedMovies.length === 0 && /*#__PURE__*/_react.default.createElement("h2", null, "Loading ..."), sortedMovies.map(movie => {
     return /*#__PURE__*/_react.default.createElement("article", {
       key: movie.id
     }, /*#__PURE__*/_react.default.createElement("h3", null, movie.title), /*#__PURE__*/_react.default.createElement("p", {
@@ -28415,7 +28413,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58780" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60034" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

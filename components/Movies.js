@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 function Movies() {
     const [movies, setMovies] = useState([]);
-    const [isLoading, setLoading] = useState(true);
+    //const [isLoading, setLoading] = useState(true);
 
     async function fetchMovies() {
-        setLoading(true)
+        //setLoading(true)
         const response = await fetch(' https://ghibliapi.herokuapp.com/films');
         const data = await response.json();
         setMovies(data);
@@ -14,12 +14,12 @@ function Movies() {
 
     useEffect(() => {
         fetchMovies();
-        setLoading(false);
+        //setLoading(false);
     }, [])
     const sortedMovies = movies.sort((a,b) => b.rt_score - a.rt_score)
     return(
         <div>
-            {isLoading && <p>Loading ...</p>}
+            {(sortedMovies.length === 0) && <h2>Loading ...</h2>}
             {sortedMovies.map(movie => {
                 return (
                     <article key={movie.id}>
