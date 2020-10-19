@@ -1,0 +1,66 @@
+body {
+    background-color: gainsboro;
+    font-family: 'Roboto';
+}
+
+header {
+    padding: 2rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    padding: 0 2rem;
+}
+
+article {
+    padding: 1rem;
+    background-color: #fff;
+    display: grid;
+    grid-template-areas: "title title release . . rate"
+                         "descr descr descr descr . ."
+                         "director director producer producer . delete";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	border-radius: 5px;
+	margin: 2rem;
+}
+
+h3 {
+    grid-area: title;
+}
+
+.release_date {
+    grid-area: release;
+}
+
+.rt_rate {
+    grid-area: rate;
+}
+
+.description {
+    grid-area: descr;
+}
+
+.director {
+    grid-area: director;
+}
+
+.producer {
+    grid-area: producer;
+}
+
+p, h3 {
+    margin: 0.5rem;
+}
+
+.delete {
+    max-width: 80px;
+    height: 40px;
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    grid-area: delete;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
